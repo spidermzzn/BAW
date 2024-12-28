@@ -3,17 +3,29 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
+const helmet = require("helmet"); // Ensure helmet is installed: npm install helmet
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+// Use Helmet to configure Content Security Policy
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      useDefaults: true,
+      directives: {
+        "default-src": ["'self'"],
+        "font-src": ["'self'", "https://fonts.gstatic.com"],
+        "style-src": ["'self'", "https://fonts.googleapis.com"],
+      },
+    },
+  })
+);
+
 // MongoDB connection
 mongoose
-  .connect("mongodb://localhost:27017/confessions", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL, {})
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
@@ -47,14 +59,7 @@ app.get("/", (req, res) => {
 });
 
 // Start the server
-const PORT = 5005;
-const DOMAIN = "blockingallwomen.com"; // Your domain name
+const PORT = process.env.PORT || 5005;
 app.listen(PORT, () => {
-  console.log(`Server running on http://${DOMAIN}:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-
-// Deployment Notes:
-// - Ensure your domain is configured to point to your server's IP address or hosting environment.
-// - If using HTTPS, set up an SSL certificate for secure communication (e.g., with Let's Encrypt).
-// - Update the frontend to use the appropriate domain for API calls if needed.
-// - Consider using a reverse proxy like Nginx or Apache for better performance and routing with your domain name.
