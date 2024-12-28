@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path");
-const helmet = require("helmet"); // Ensure helmet is installed: npm install helmet
+const helmet = require("helmet");
 
 const app = express();
 app.use(bodyParser.json());
@@ -16,8 +16,8 @@ app.use(
       useDefaults: true,
       directives: {
         "default-src": ["'self'"],
+        "style-src-elem": ["'self'", "https://fonts.googleapis.com"],
         "font-src": ["'self'", "https://fonts.gstatic.com"],
-        "style-src": ["'self'", "https://fonts.googleapis.com"],
       },
     },
   })
