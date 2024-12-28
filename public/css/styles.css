@@ -445,11 +445,26 @@ a {
       rgba(0, 0, 0, 0) 85%,
       rgba(26, 26, 26, 0.9)
     ),
-    url("../images/hero.png");
+    url("../images/hero2.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+  .pic {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 85%,
+        rgba(26, 26, 26, 0.9)
+      ),
+      url("../images/hero.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: #000000;
+  }
 }
 
 .block--dark h1,
