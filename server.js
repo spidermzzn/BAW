@@ -25,7 +25,10 @@ app.use(
 
 // MongoDB connection
 mongoose
-  .connect(process.env.MONGO_URL, {})
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
@@ -39,15 +42,27 @@ const Confession = mongoose.model("Confession", confessionSchema);
 
 // API routes
 app.get("/api/confessions", async (req, res) => {
-  const confessions = await Confession.find().sort({ timestamp: -1 });
-  res.json(confessions);
+  try {
+    const confessions = await Confession.find().sort({ timestamp: -1 });
+    console.log("Fetched confessions:", confessions);
+    res.json(confessions);
+  } catch (error) {
+    console.error("Error fetching confessions:", error);
+    res.status(500).send("Server error");
+  }
 });
 
 app.post("/api/confessions", async (req, res) => {
-  const { content, timestamp } = req.body;
-  const newConfession = new Confession({ content, timestamp });
-  await newConfession.save();
-  res.status(201).json(newConfession);
+  try {
+    const { content, timestamp } = req.body;
+    const newConfession = new Confession({ content, timestamp });
+    await newConfession.save();
+    console.log("New confession saved:", newConfession);
+    res.status(201).json(newConfession);
+  } catch (error) {
+    console.error("Error saving confession:", error);
+    res.status(500).send("Server error");
+  }
 });
 
 // Serve static frontend files
