@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Welcome to Blocking All Women, the platform where users share funny or outrageous stories about their experiences with women. Join the conversation today!"
+    />
+    <meta
+      name="keywords"
+      content="funny stories, bad experiences, women, relationships, humor, storytelling, social platform, share stories, venting, men"
+    />
+    <meta
+      property="og:title"
+      content="Blocking All Women - Make your confession"
+    />
+    <meta
+      property="og:description"
+      content="Blocking All Women is the go-to platform for sharing and reading entertaining or frustrating stories about women. Focus, laugh, and connect with others!"
+    />
+    <meta property="og:type" content="website" />
+    <title>BLOCK ALL WOMEN - Home</title>
+    <link rel="icon" href="images/logo2.jpg" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script
+      src="https://kit.fontawesome.com/e2a679f51a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="pic">
+      <nav class="nav">
+        <a class="nav__brand" href="index.html">
+          <img class="logo" src="images/logo2.jpg" alt="logo" />
+        </a>
+
+        <ul class="list nav__list">
+          <li class="nav__item">
+            <a href="index.html">Home</a>
+          </li>
+        </ul>
+      </nav>
+      <section class="block block--dark block--skewed-left hero">
+        <div class="container grid grid--1x2">
+          <header class="block__header hero__content">
+            <h1 class="block__heading">
+              BLOCK <br />
+              ALL WOMEN
+            </h1>
+            <p class="hero__tagline">BLOCK ALL WOMEN</p>
+            <br />
+            <a
+              href="makeConfession.html"
+              class="btn btn--accent btn--stretched"
+            >
+              Make Confession
+            </a>
+          </header>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="block container">
+        <article class="feature grid grid--1x2">
+          <div class="feature__content" data-aos="fade-up">
+            <a href="">
+              <img class="feature__image" src="images/twitter.png" alt="" />
+            </a>
+          </div>
+          <div data-aos="fade-up">
+            <a href="">
+              <img class="feature__image" src="images/telegram.png" />
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section class="block container">
+        <header class="block__header">
+          <h2>Post Your Confession</h2>
+          <p>
+            Share your story with others. All submissions are displayed below!
+          </p>
+        </header>
+        <form id="confessionForm">
+          <textarea
+            id="confessionInput"
+            rows="4"
+            placeholder="Write your confession here..."
+            required
+          ></textarea>
+          <button type="submit" id="postBtn">Post Confession</button>
+        </form>
+        <div id="confessionList">
+          <h3>Latest Confessions</h3>
+          <div id="confessionsContainer"></div>
+          <div class="btn-group">
+            <button id="loadMoreBtn" style="display: none">Load More</button>
+            <button id="showLessBtn" style="display: none">Show Less</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="container">
+      <div class="callout callout--primary callout-signup">
+        <div class="grid grid--1x2">
+          <div class="callout__content">
+            <h2 class="callout__heading">Share your craziest story!</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
+              alias odio sunt ipsa ipsam beatae vitae deserunt sint animi
+              pariatur!
+            </p>
+          </div>
+          <a href="contact.html" class="btn btn--secondary btn--stretched">
+            confess!</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <footer class="block block--dark footer">
+      <div class="container footer__sections grid">
+        <div class="footer__brand">
+          <img src="images/logo.png" alt="logo" />
+          <p class="footer__copyright">Copyright&copy; 2024 BlockingAllWomen</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
